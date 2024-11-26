@@ -10,6 +10,8 @@ on:
 jobs:
   run-automation-test:
     runs-on: windows-latest
+    permissions: 
+      contents: write
 
     steps:
     # Download repo
@@ -44,8 +46,6 @@ jobs:
 
     # Deploy to GitHub page
     - name: Deploy report to GitHub Pages
-      permissions: 
-        contents: write
       uses: peaceiris/actions-gh-pages@v4.0.0
       with: 
         personal_token: ${{ secrets.GITHUB_TOKEN }}
