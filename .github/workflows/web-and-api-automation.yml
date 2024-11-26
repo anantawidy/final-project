@@ -43,8 +43,8 @@ jobs:
         path: reports
 
     # Deploy to GitHub page
-    - run: |
-          git remote set-url origin https://github.com/${{ github.repository }}.git
-          git push origin gh-pages
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy report to github page
+      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e
+      with: 
+        personal_token: ${{ secrets.GITHUB_TOKEN}}
+        publish_dir: reports
